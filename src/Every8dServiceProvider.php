@@ -11,8 +11,11 @@ class Every8dServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Client::class, function ($app) {
             $config = Arr::get($app['config'], 'services.every8d', []);
+            $userId = Arr::get($config, 'user_id');
+            $password = Arr::get($config, 'password');
+            $smsHost = Arr::get($config, 'sms_host', 'api.e8d.tw');
 
-            return new Client(Arr::get($config, 'user_id'), Arr::get($config, 'password'));
+            return (new Client($userId, $password))->setSmsHost($smsHost);
         });
     }
 }

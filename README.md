@@ -55,6 +55,7 @@ your `config/services.php`:
 'every8d' => [
     'user_id'  => env('SERVICES_EVERY8D_USER_ID'),
     'password' => env('SERVICES_EVERY8D_PASSWORD'),
+    'sms_host' => env('SERVICES_EVERY8D_SMS_HOST')
 ],
 ...
 ```
